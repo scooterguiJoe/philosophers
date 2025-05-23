@@ -6,7 +6,7 @@
 /*   By: guvascon <guvascon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 15:58:54 by guvascon          #+#    #+#             */
-/*   Updated: 2025/05/22 16:31:22 by guvascon         ###   ########.fr       */
+/*   Updated: 2025/05/23 14:58:28 by guvascon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,16 @@ typedef struct s_philo
 	size_t		time_to_die;
 	size_t		time_to_eat;
 	size_t		time_to_sleep;
+	pthread_mutex_t	*right_fork;
+	pthread_mutex_t	*left_fork;
 	
-} 	t_philo;
+}	t_philo;
 
 //philo.c
- int init_data(t_philo *philo, char **av);
+int	check_args(char **av);
+
+//init.c
+int init_data(t_philo *philo, char **av);
 
 //philo_utils.c
 int		ft_isdigit(char c);
