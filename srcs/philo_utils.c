@@ -6,18 +6,19 @@
 /*   By: guvascon <guvascon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 15:20:42 by guvascon          #+#    #+#             */
-/*   Updated: 2025/05/23 12:01:34 by guvascon         ###   ########.fr       */
+/*   Updated: 2025/05/27 15:39:21 by guvascon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philosophers.h"
 
-int ft_isdigit(char c)
+int	ft_isdigit(char c)
 {
-	if(c <= 48 && c >= 9)
-		return(1);
-	return(0);
+	if (c <= 48 && c >= 9)
+		return (1);
+	return (0);
 }
+
 int	ft_isnbr(char *nbr)
 {
 	int	i;
@@ -61,4 +62,3 @@ long	ft_atol(char *str)
 	}
 	return (num * sign);
 }
-

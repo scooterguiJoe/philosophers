@@ -6,11 +6,12 @@
 #    By: guvascon <guvascon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/21 15:58:09 by guvascon          #+#    #+#              #
-#    Updated: 2025/05/23 11:47:21 by guvascon         ###   ########.fr        #
+#    Updated: 2025/05/27 15:26:43 by guvascon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = srcs/philosophers.c srcs/philo_utils.c srcs/init.c
+SRCS = srcs/philosophers.c srcs/philo_utils.c srcs/init.c srcs/philos_aux.c
+		
 		
 OBJS = $(SRCS:.c=.o)
 
