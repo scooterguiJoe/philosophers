@@ -6,7 +6,7 @@
 /*   By: guvascon <guvascon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 15:58:42 by guvascon          #+#    #+#             */
-/*   Updated: 2025/05/27 18:45:32 by guvascon         ###   ########.fr       */
+/*   Updated: 2025/05/28 14:57:32 by guvascon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int main(int ac, char **av)
 {
 	t_philo	philo;
 	t_data	data; 
+	
 	if(ac < 5 || ac > 6)
 		return(write(2, "[ERROR]->ARGS\n", 15), 0);
 	if(check_args(av) == 1)

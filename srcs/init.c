@@ -6,7 +6,7 @@
 /*   By: guvascon <guvascon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 11:34:47 by guvascon          #+#    #+#             */
-/*   Updated: 2025/05/27 18:37:48 by guvascon         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:04:18 by guvascon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int init_forks(t_philo *philo) //inicio os forks (mutex)
 	int				i;
 	pthread_mutex_t	*forks;
 	
+	
 	forks = malloc(sizeof(pthread_mutex_t) * philo->number_of_philosophers);
 	if (!forks)
 		return (0);
@@ -51,10 +52,11 @@ int init_forks(t_philo *philo) //inicio os forks (mutex)
 	i = 0;
 	while(i < philo->number_of_philosophers)
 	{
-		philo[i].left_fork;
+		philo[i].left_fork = &forks[i];
 		philo[i].right_fork = &forks[(i + 1) % philo->number_of_philosophers];
 		i++;
 	}
+	return (1);
 }
 
 void	*philo_routine(void *arg)

@@ -6,7 +6,7 @@
 /*   By: guvascon <guvascon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 15:20:42 by guvascon          #+#    #+#             */
-/*   Updated: 2025/05/27 15:39:21 by guvascon         ###   ########.fr       */
+/*   Updated: 2025/05/28 14:59:51 by guvascon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_isdigit(char c)
 {
-	if (c <= 48 && c >= 9)
+	if (c <= '0' && c >= '9')
 		return (1);
 	return (0);
 }
@@ -24,9 +24,9 @@ int	ft_isnbr(char *nbr)
 	int	i;
 
 	i = 0;
-	if (nbr[i] == '+')
+	if (nbr[i] == '+' || nbr[i] == '-')
 		i++;
-	if (!nbr[i] || nbr[i] == '-')
+	if (!nbr[i])
 		return (0);
 	while (nbr[i])
 	{
