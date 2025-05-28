@@ -6,7 +6,7 @@
 /*   By: guvascon <guvascon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 11:34:47 by guvascon          #+#    #+#             */
-/*   Updated: 2025/05/28 15:04:18 by guvascon         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:33:38 by guvascon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int init_forks(t_philo *philo) //inicio os forks (mutex)
 {
 	int				i;
 	pthread_mutex_t	*forks;
-	
 	
 	forks = malloc(sizeof(pthread_mutex_t) * philo->number_of_philosophers);
 	if (!forks)
@@ -66,19 +65,21 @@ void	*philo_routine(void *arg)
 
 	philo = (t_philo *)arg;
 	data = philo->data;
+	if(philo->id % 2 == 0)
+		usleep(1000);
 	while (!philo->data->philo_dead)
 	{
-		print_status(philo, "is thinking");
+		print_status(philo, THINKING);
 		pthread_mutex_lock(philo->left_fork);
-		print_status(philo, "has taken a fork");
+		print_status(philo, TAKEN_FORK);
 		pthread_mutex_lock(philo->right_fork);
-		print_status(philo, "has taken a fork");
-		print_status(philo, "is eating");
+		print_status(philo, TAKEN_FORK);
+		print_status(philo, EATING);
 		philo->last_meal = get_current_time();
 		ft_sleep(philo->time_to_eat);
 		pthread_mutex_unlock(philo->left_fork);
 		pthread_mutex_unlock(philo->right_fork);
-		print_status(philo, "is sleeping");
+		print_status(philo, SLEEPING);
 		ft_sleep(philo->time_to_sleep);
 	}
 	return(NULL);

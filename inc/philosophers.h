@@ -6,7 +6,7 @@
 /*   By: guvascon <guvascon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 15:58:54 by guvascon          #+#    #+#             */
-/*   Updated: 2025/05/27 18:37:41 by guvascon         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:25:31 by guvascon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,22 @@ typedef struct s_data
 	pthread_mutex_t *forks;
 	
 }	t_data;
+
+# define RESET		"\033[0m"
+# define RED		"\033[31m"
+# define GREEN		"\033[32m"
+# define YELLOW		"\033[33m"
+# define BLUE		"\033[34m"
+# define MAGENTA	"\033[35m"
+# define CYAN		"\033[36m"
+# define WHITE		"\033[37m"
+
+
+# define THINKING	BLUE "is thinking" RESET
+# define TAKEN_FORK	GREEN "has taken a fork" RESET
+# define EATING		MAGENTA "is eating" RESET
+# define SLEEPING	CYAN "is sleeping" RESET
+# define DIED		RED "died" RESET
 
 //philo.c
 int	check_args(char **av);
