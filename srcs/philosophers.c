@@ -6,7 +6,7 @@
 /*   By: guvascon <guvascon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 15:58:42 by guvascon          #+#    #+#             */
-/*   Updated: 2025/05/28 14:57:32 by guvascon         ###   ########.fr       */
+/*   Updated: 2025/06/04 16:43:11 by guvascon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int	check_args(char **av)
 {
-	if (ft_atol(av[2]) <= 0|| ft_isnbr(av[2]))
+	if(ft_atol(av[1]) <= 0 || ft_isnbr(av[1]))
+		return (write(2,"[ERROR]->PHILO\n", 16), 0);
+	if (ft_atol(av[2]) <= 0 || ft_isnbr(av[2]))
 		return (write(2, "[ERROR]->DYING\n", 16), 1);
 	if (ft_atol(av[3]) <= 0 || ft_isnbr(av[3]))
 		return (write(2, "[ERROR]->EATING\n", 17), 1);

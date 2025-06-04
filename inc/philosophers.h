@@ -6,7 +6,7 @@
 /*   By: guvascon <guvascon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 15:58:54 by guvascon          #+#    #+#             */
-/*   Updated: 2025/05/28 15:25:31 by guvascon         ###   ########.fr       */
+/*   Updated: 2025/06/04 16:49:26 by guvascon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,11 @@
 #include <stdio.h>
 #include <sys/time.h>
 
-#define MAX_PHILO 200
-
 typedef struct s_philo
 {
 	int				id;
 	pthread_t		thread;
-	int				number_of_philosophers;
+	int				num_philo;
 	int				num_times_to_eat;
 	size_t			time_to_die;
 	size_t			time_to_eat;
@@ -47,6 +45,7 @@ typedef struct s_data
 	
 }	t_data;
 
+# define MAX_PHILO 200
 # define RESET		"\033[0m"
 # define RED		"\033[31m"
 # define GREEN		"\033[32m"
@@ -69,7 +68,6 @@ int	check_args(char **av);
 //init.c
 int init_data(t_philo *philo, char **av);
 int init_forks(t_philo *philo);
-//void	*philo_routine(void *arg);
 
 //philo_utils.c
 int		ft_isdigit(char c);
@@ -80,5 +78,8 @@ long	ft_atol(char *str);
 size_t	get_current_time(void);
 void	print_status(t_philo *philo, char *status);
 void	ft_sleep(size_t ms);
+
+//routine.c
+void	*philo_routine(void *arg);
 
 #endif
