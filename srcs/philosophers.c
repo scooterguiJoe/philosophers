@@ -6,7 +6,7 @@
 /*   By: guvascon <guvascon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 15:58:42 by guvascon          #+#    #+#             */
-/*   Updated: 2025/06/04 16:43:11 by guvascon         ###   ########.fr       */
+/*   Updated: 2025/06/06 17:52:05 by guvascon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int main(int ac, char **av)
 		return(write(2, "[ERROR]->ARGS\n", 15), 0);
 	if(check_args(av) == 1)
 		return(1);
-	init_data(&philo, av);
+	init_data(&philo, ac, av);
 	return(0);
 }
+

@@ -6,12 +6,40 @@
 /*   By: guvascon <guvascon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 16:11:03 by guvascon          #+#    #+#             */
-/*   Updated: 2025/06/04 16:46:37 by guvascon         ###   ########.fr       */
+/*   Updated: 2025/06/06 17:55:00 by guvascon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philosophers.h"
 
+// int	init_simulation(t_data *data, t_philo **philo)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	if(pthread_mutex_init(&data->print_mutex, NULL) != 0)
+// 		return (0);
+// 	if(!init_forks(data->num_philo))
+// 	{
+// 		pthread_mutex_destroy(&data->print_mutex);
+// 		return (0);
+// 	}
+// 	*philo = malloc(sizeof(t_philo) * data->num_philo);
+// 	if(!*philo)
+// 	{
+// 		destroy_forks(data);
+// 		pthread_mutex_destroy(&data->print_mutex);
+// 		return (0);
+// 	}
+// 	while(i < data->num_philo)
+// 	{
+// 		(*philo)[i].id = i + 1;
+// 		(*philo)[i].data = data;
+// 		assign_forks(&(*philo)[i], i, data);
+		
+// 	}
+// 	return(1);
+// } 
 void	*philo_routine(void *arg)
 {
 	t_philo	*philo;
@@ -21,10 +49,10 @@ void	*philo_routine(void *arg)
 		usleep(1500);
 	while (1)
 	{
-		pthread_mutex_lock(&data->print_mutex);
-		if(data->philo_dead)
+		pthread_mutex_lock(&philo->data->print_mutex);
+		if(philo->data->philo_dead)
 		{
-			pthread_mutex_unlock(&data->philo_dead);
+			pthread_mutex_unlock(&philo->data->philo_dead);
 			break ;
 		}
 		print_status(philo, THINKING);
@@ -42,5 +70,4 @@ void	*philo_routine(void *arg)
 	}
 	return(NULL);
 }
-
 

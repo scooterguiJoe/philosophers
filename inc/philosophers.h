@@ -6,7 +6,7 @@
 /*   By: guvascon <guvascon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 15:58:54 by guvascon          #+#    #+#             */
-/*   Updated: 2025/06/04 16:49:26 by guvascon         ###   ########.fr       */
+/*   Updated: 2025/06/06 17:53:28 by guvascon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,11 @@ typedef struct s_philo
 typedef struct s_data
 {
 	int				philo_dead;
+	int				num_philo;
 	pthread_mutex_t	print_mutex;
 	size_t			start_time;
 	pthread_mutex_t *forks;
+	pthread_mutex_t death_mutex;
 	
 }	t_data;
 
@@ -66,8 +68,9 @@ typedef struct s_data
 int	check_args(char **av);
 
 //init.c
-int init_data(t_philo *philo, char **av);
-int init_forks(t_philo *philo);
+int init_data(t_philo *philo, int ac, char **av);
+int init_forks(t_data *data);
+void	destroy_forks(t_data *data);
 
 //philo_utils.c
 int		ft_isdigit(char c);
@@ -78,8 +81,17 @@ long	ft_atol(char *str);
 size_t	get_current_time(void);
 void	print_status(t_philo *philo, char *status);
 void	ft_sleep(size_t ms);
+void	assign_forks(t_data *data, int id, t_philo *philo);
 
 //routine.c
 void	*philo_routine(void *arg);
+int should_stop(t_data *data);
+void take_forks(t_philo *philo);
+void update_meal(t_philo *philo);
+void eat_sleep(t_philo *philo);
+
+//monitor.c
+void *monitor_routine(void *arg);
+int simulation_should_end(t_data *data);
 
 #endif

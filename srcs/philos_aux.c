@@ -6,7 +6,7 @@
 /*   By: guvascon <guvascon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 15:22:00 by guvascon          #+#    #+#             */
-/*   Updated: 2025/05/28 14:56:04 by guvascon         ###   ########.fr       */
+/*   Updated: 2025/06/06 17:51:32 by guvascon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,12 @@ void ft_sleep(size_t ms)
 	while(get_current_time() - start < ms)
 		usleep(500); 
 }
+
+// void	assign_forks(t_data *data, int id, t_philo *philo)
+// {
+// 	philo->left_fork = &data->forks[id];
+// 	philo->right_fork = &data->forks[(id + 1) % data->num_philo];
+// }
 
 // void	ft_sleep(size_t ms, t_philo *philo)
 // {

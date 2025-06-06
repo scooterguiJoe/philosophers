@@ -6,9 +6,8 @@
 /*   By: guvascon <guvascon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 14:49:21 by guvascon          #+#    #+#             */
-/*   Updated: 2025/05/28 14:49:35 by guvascon         ###   ########.fr       */
+/*   Updated: 2025/06/06 17:51:03 by guvascon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philosophers.h"
-
