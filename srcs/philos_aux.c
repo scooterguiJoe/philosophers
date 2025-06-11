@@ -6,7 +6,7 @@
 /*   By: guvascon <guvascon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 15:22:00 by guvascon          #+#    #+#             */
-/*   Updated: 2025/06/06 17:51:32 by guvascon         ###   ########.fr       */
+/*   Updated: 2025/06/11 15:58:31 by guvascon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ size_t	get_current_time(void)
 	return (tv.tv_sec * 1000 + tv.tv_usec / 1000); 
 }
 
-void	print_status(t_philo *philo, char *status)
-{
-	pthread_mutex_lock(&philo->data->print_mutex);
-	if (!philo->data->philo_dead)
-		printf("%zu %d %s", get_current_time() - philo->data->start_time, philo->id, status);
-	pthread_mutex_unlock(&philo->data->print_mutex);	
-}
+// void	print_status(t_philo *philo, char *status)
+// {
+// 	pthread_mutex_lock(&philo->data->print_mutex);
+// 	if (!philo->data->philo_dead)
+// 		printf("%zu %d %s", get_current_time() - philo->data->start_time, philo->id, status);
+// 	pthread_mutex_unlock(&philo->data->print_mutex);	
+// }
 
 void ft_sleep(size_t ms)
 {

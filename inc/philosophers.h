@@ -6,7 +6,7 @@
 /*   By: guvascon <guvascon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 15:58:54 by guvascon          #+#    #+#             */
-/*   Updated: 2025/06/06 17:53:28 by guvascon         ###   ########.fr       */
+/*   Updated: 2025/06/11 15:58:19 by guvascon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_philo
 	pthread_t		thread;
 	int				num_philo;
 	int				num_times_to_eat;
+	int				philo_dead;
 	size_t			time_to_die;
 	size_t			time_to_eat;
 	size_t			time_to_sleep;
@@ -33,18 +34,16 @@ typedef struct s_philo
 	pthread_mutex_t	*left_fork;
 	size_t			last_meal;
 	int				meals_eaten;
-	t_data			*data;
+	//struct t_data			*data;
 }	t_philo;
 
 typedef struct s_data
 {
-	int				philo_dead;
-	int				num_philo;
 	pthread_mutex_t	print_mutex;
 	size_t			start_time;
 	pthread_mutex_t *forks;
 	pthread_mutex_t death_mutex;
-	
+	t_philo *philo;
 }	t_data;
 
 # define MAX_PHILO 200

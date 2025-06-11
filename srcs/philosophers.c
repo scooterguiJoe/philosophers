@@ -6,7 +6,7 @@
 /*   By: guvascon <guvascon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 15:58:42 by guvascon          #+#    #+#             */
-/*   Updated: 2025/06/06 17:52:05 by guvascon         ###   ########.fr       */
+/*   Updated: 2025/06/11 16:18:05 by guvascon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,22 @@ int	check_args(char **av)
 		return (write(2, "[ERROR]->EATING\n", 17), 1);
 	if (ft_atol(av[4]) <= 0 || ft_isnbr(av[4]))
 		return (write(2, "[ERROR]->SLEEPING\n", 19), 1);
-	if ((av[5] && ft_atol(av[5]) <= 0) || ft_isnbr(av[5]))
+	if (av[5] && (ft_atol(av[5]) <= 0 || ft_isnbr(av[5])))
 		return (write(2, "[ERROR]->PHILO HAS TO EAT MORE\n", 32), 1);
 	return (0);
 }
 
+
 int main(int ac, char **av)
 {
-	t_philo	philo;
-	t_data	data; 
-	
-	if(ac < 5 || ac > 6)
-		return(write(2, "[ERROR]->ARGS\n", 15), 0);
-	if(check_args(av) == 1)
-		return(1);
-	init_data(&philo, ac, av);
-	return(0);
+	t_philo philo;
+
+	if (ac < 5 || ac > 6)
+		return (write(2, "[ERROR]->ARGS\n", 15), 0);
+	if (check_args(av) == 1)
+		return (1);
+	if (init_data(&philo, ac, av))
+		return (1);
+	return (0);
 }
 
